@@ -1,0 +1,20 @@
+.root {
+    display: flex;
+    margin-left: 10px;
+}
+.buttonLamp {
+    background-color: gray;
+    border: none;
+}
+.greenLamp {
+    background-color: green;
+}
+.redLamp {
+    background-color: darkred;
+}
+.lamp {
+    width: 25px;
+    height: 25px;
+    margin-left: 10px;
+    border-radius: 15px;
+}
