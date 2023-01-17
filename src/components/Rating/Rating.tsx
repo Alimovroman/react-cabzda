@@ -1,31 +1,38 @@
-import React, {FC} from "react";
+import React, {FC, useState} from "react";
 
 type PropsRating = {
-    value: number
+
 }
 
-function Rating ({value}: PropsRating) {
+function Rating () {
+    const [value, setValue] = useState<number>(0)
+    const onChangeStar = (id: number) => {
+        setValue(id)
+    }
         return (
             <div>
-                <Star selected={value > 0 }/>
-                <Star selected={value > 1 }/>
-                <Star selected={value > 2 }/>
-                <Star selected={value > 3 }/>
-                <Star selected={value ===5 }/>
+                <Star selected={value > 0 } onChangeStar={onChangeStar} id={1}/>
+                <Star selected={value > 1 } onChangeStar={onChangeStar} id={2}/>
+                <Star selected={value > 2 } onChangeStar={onChangeStar} id={3}/>
+                <Star selected={value > 3 } onChangeStar={onChangeStar} id={4}/>
+                <Star selected={value ===5 } onChangeStar={onChangeStar} id={5}/>
             </div>
         )
 }
 
 type Props = {
     selected: boolean
+    onChangeStar: (id: number) => void
+    id: number
 }
 
 function Star(props: Props) {
-    if (props.selected) {
-        return <span><b> Star</b></span>
-    } else {
-        return <span> Star</span>
-    }
-}
+    return (
+        props.selected
+            ?  <span onClick={() => props.onChangeStar(props.id)}><b> Star</b></span>
+            :  <span onClick={() => props.onChangeStar(props.id)}> Star</span>
+    )
 
+}
+// onClick={() => props.onChangeStar(props.id)}
 export default Rating

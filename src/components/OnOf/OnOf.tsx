@@ -1,14 +1,18 @@
-import React, {FC} from 'react';
+import React, {FC, useState} from 'react';
 import style from './OnOf.module.css'
 
 type OnOfTypeProps = {
-    isOn: boolean
+
 }
-const OnOf: FC<OnOfTypeProps> = ({isOn}) => {
+const OnOf: FC<OnOfTypeProps> = () => {
+    const [isOn, setIsOn] = useState<boolean>(true)
+    const onClickHandler = (onOf: boolean) => {
+        setIsOn(onOf)
+    }
     return (
         <div className={style.root}>
-            <button className={isOn === true ? style.greenLamp : style.buttonLamp}>On</button>
-            <button className={isOn === false ? style.redLamp : style.buttonLamp}>Of</button>
+            <button onClick={() => onClickHandler(true)} className={isOn === true ? style.greenLamp : style.buttonLamp}>On</button>
+            <button onClick={() => onClickHandler(false)} className={isOn === false ? style.redLamp : style.buttonLamp}>Of</button>
             <div className={`${isOn === true ? style.greenLamp : style.redLamp} ${style.lamp}`}></div>
         </div>
     );

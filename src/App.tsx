@@ -9,10 +9,10 @@ function App() {
         <div>
             <input value={'yo'}/>
             <input type={"date"}/>
-            <Accordion title='What is accordion?' collapsed={true}/>
-            <Accordion title='YoYoYo?' collapsed={false}/>
-            <Rating value={2}/>
-            <OnOf isOn={false}/>
+            <Accordion title='What is accordion?' />
+            <Accordion title='YoYoYo?' />
+            <Rating />
+            <OnOf/>
         </div>
     );
 }
