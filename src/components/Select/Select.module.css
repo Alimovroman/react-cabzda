@@ -1,0 +1,31 @@
+.root {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100px;
+    cursor: pointer;
+    background-color: antiquewhite;
+    border-radius: 5px;
+}
+.mainTitle {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    background-color: lavender;
+    /*border-bottom: 1px solid black;*/
+    border: 1px solid grey;
+    border-radius: 5px;
+
+}
+.itemsWrapped {
+    /*border: 0px solid grey;*/
+    border-top: none;
+    border-radius: 5px;
+    width: 100%;
+    text-align: center;
+    margin-top: 5px;
+}
+.itemTitle {
+    margin-bottom: 5px;
+
+}

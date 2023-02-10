@@ -17,7 +17,8 @@ const Template: Story<PropsAccordion> = (args) => <Accordion {...args} />;
 export const AccordionComponent = Template.bind({});
 
 AccordionComponent.args = {
-    title: "Wats up Man Bro"
+    title: "Wats up Man Bro",
+    items: [{title: '1', value: 1},{title: '2', value: 2}, {title: '2', value: 3}]
 }
 
 // export const AccordionComponent = () => {

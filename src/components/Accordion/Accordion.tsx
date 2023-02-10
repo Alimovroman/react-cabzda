@@ -1,15 +1,17 @@
 import React, {useState} from "react";
-
-export type PropsAccordion = {
-
-    /**
-     * name for Accardion component
-     */
+export type ItemType = {
     title: string
-    backgroundColor?: string
+    value: any
 }
 
-function Accordion({title,backgroundColor}: PropsAccordion) {
+export type PropsAccordion = {
+    title: string
+    backgroundColor?: string
+    items: ItemType[]
+    onClick: (value: any, ) => void
+}
+
+function Accordion({title,backgroundColor, items, onClick}: PropsAccordion) {
     const [collapsed, setCollapsed] = useState<boolean>(true)
     const onClickHandler = () => {
         setCollapsed(!collapsed)
@@ -17,7 +19,7 @@ function Accordion({title,backgroundColor}: PropsAccordion) {
         return (
             <>
                 <AccordionTitle backgroundColor={backgroundColor} title={title} onClickHandler={onClickHandler}/>
-                {!collapsed && <AccordionBody/>}
+                {!collapsed && <AccordionBody items={items} onClick={onClick}/>}
             </>
         )
 }
@@ -34,13 +36,16 @@ function AccordionTitle({title, onClickHandler, backgroundColor}: AccordionTitle
     )
 }
 
-function AccordionBody() {
+type AccordionBodyProps = {
+    items: ItemType[]
+    onClick: (value: any, ) => void
+}
+
+function AccordionBody({items, onClick}: AccordionBodyProps) {
     return (
         <div>
             <ul>
-                <li>2</li>
-                <li>1</li>
-                <li>1</li>
+                {items.map((el, i) => <li key={i} onClick={() => onClick(el.value)}>{el.title}</li>)}
             </ul>
         </div>
     )
