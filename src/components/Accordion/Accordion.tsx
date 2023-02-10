@@ -1,17 +1,22 @@
 import React, {useState} from "react";
 
-type PropsAccordion = {
+export type PropsAccordion = {
+
+    /**
+     * name for Accardion component
+     */
     title: string
+    backgroundColor?: string
 }
 
-function Accordion({title}: PropsAccordion) {
+function Accordion({title,backgroundColor}: PropsAccordion) {
     const [collapsed, setCollapsed] = useState<boolean>(true)
     const onClickHandler = () => {
         setCollapsed(!collapsed)
     }
         return (
             <>
-                <AccordionTitle title={title} onClickHandler={onClickHandler}/>
+                <AccordionTitle backgroundColor={backgroundColor} title={title} onClickHandler={onClickHandler}/>
                 {!collapsed && <AccordionBody/>}
             </>
         )
@@ -20,11 +25,12 @@ function Accordion({title}: PropsAccordion) {
 type AccordionTitle = {
     title: string
     onClickHandler: () => void
+    backgroundColor?: string
 }
 
-function AccordionTitle({title, onClickHandler}: AccordionTitle) {
+function AccordionTitle({title, onClickHandler, backgroundColor}: AccordionTitle) {
     return (
-        <h3 onClick={onClickHandler}>{title}</h3>
+        <h3 style={{backgroundColor}} onClick={onClickHandler}>{title}</h3>
     )
 }
 

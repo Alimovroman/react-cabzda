@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-import Accordion from "./Accordion";
+import {ComponentStory, ComponentMeta, Story} from '@storybook/react';
+import Accordion, {PropsAccordion} from "./Accordion";
+import {Button} from "../../stories/Button";
 
 
 export default {
@@ -11,10 +12,17 @@ export default {
     },
 } as ComponentMeta<typeof Accordion>;
 
+const Template: Story<PropsAccordion> = (args) => <Accordion {...args} />;
 
-export const AccordionComponent = () => {
+export const AccordionComponent = Template.bind({});
 
-    return (
-        <Accordion title={"Wats up Man"} />
-    )
+AccordionComponent.args = {
+    title: "Wats up Man Bro"
 }
+
+// export const AccordionComponent = () => {
+//
+//     return (
+//         <Accordion title={"Wats up Man"} />
+//     )
+// }
