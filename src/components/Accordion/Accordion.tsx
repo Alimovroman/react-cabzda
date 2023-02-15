@@ -14,7 +14,7 @@ export type PropsAccordion = {
 }
 
 
-function Accordion({title, backgroundColor, items, onClick}: PropsAccordion) {
+const AccordionControlled = ({title, backgroundColor, items, onClick}: PropsAccordion) => {
     // const [collapsed, setCollapsed] = useState<boolean>(true)
     const [state, dispatch] = useReducer(reducer, {collapsed: true})
     const onClickHandler = () => {
@@ -28,25 +28,26 @@ function Accordion({title, backgroundColor, items, onClick}: PropsAccordion) {
         </>
     )
 }
-
+const Accordion = React.memo(AccordionControlled)
 type AccordionTitle = {
     title: string
     onClickHandler: () => void
     backgroundColor?: string
 }
 
-function AccordionTitle({title, onClickHandler, backgroundColor}: AccordionTitle) {
+const AccordionTitleControlled = ({title, onClickHandler, backgroundColor}: AccordionTitle) => {
     return (
         <h3 style={{backgroundColor}} onClick={onClickHandler}>{title}</h3>
     )
 }
+const AccordionTitle = React.memo(AccordionTitleControlled)
 
 type AccordionBodyProps = {
     items: ItemType[]
     onClick: (value: any,) => void
 }
 
-function AccordionBody({items, onClick}: AccordionBodyProps) {
+function AccordionBodyControlled ({items, onClick}: AccordionBodyProps) {
     return (
         <div>
             <ul>
@@ -55,5 +56,5 @@ function AccordionBody({items, onClick}: AccordionBodyProps) {
         </div>
     )
 }
-
+const AccordionBody = React.memo(AccordionBodyControlled)
 export default Accordion;

@@ -4,13 +4,12 @@ import style from './OnOf.module.css'
 type OnOfTypeProps = {
     setIsOn: (on: boolean) => void
 }
-const OnOf: FC<OnOfTypeProps> = (props) => {
+const OnOfUncontrolled: FC<OnOfTypeProps> = (props) => {
     const [isOn, setIsOn] = useState<boolean>(true)
     const onClickHandler = (onOf: boolean) => {
         setIsOn(onOf)
         props.setIsOn(onOf)
     }
-
 
     return (
         <div className={style.root}>
@@ -24,5 +23,6 @@ const OnOf: FC<OnOfTypeProps> = (props) => {
         </div>
     );
 };
+const OnOf = React.memo(OnOfUncontrolled)
 
 export default OnOf;

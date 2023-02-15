@@ -5,8 +5,7 @@ type PropsRating = {
     setValue: (id: number) => void
 }
 
-function Rating({value, setValue}: PropsRating) {
-
+function RatingControlled({value, setValue}: PropsRating) {
     const onChangeStar = (id: number) => {
         setValue(id)
     }
@@ -20,6 +19,7 @@ function Rating({value, setValue}: PropsRating) {
         </div>
     )
 }
+const Rating = React.memo(RatingControlled)
 
 type Props = {
     selected: boolean
@@ -27,11 +27,12 @@ type Props = {
     // id: number
 }
 
-function Star(props: Props) {
+function StarControlled(props: Props) {
     return (
         <span onClick={props.onChangeStar}>
             {props.selected ? <b> Star</b> : 'Star'}
         </span>
     )
 }
+const Star = React.memo(StarControlled)
 export default Rating

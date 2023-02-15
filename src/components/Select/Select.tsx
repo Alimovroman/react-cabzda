@@ -7,7 +7,7 @@ type SelectPropsType = {
     changeTitle: (value: any) => void
 }
 
-const Select: FC<SelectPropsType> = ({items, changeTitle}) => {
+const SelectControlled: FC<SelectPropsType> = ({items, changeTitle}) => {
     const [mainTitle, setMainTitle] = useState('nope')
     const [isOpen, setIsOpen] = useState(false)
     const onChangeTitle = (title: string) => {
@@ -36,5 +36,6 @@ const Select: FC<SelectPropsType> = ({items, changeTitle}) => {
         </div>
     );
 };
+const Select = React.memo(SelectControlled)
 
 export default Select;

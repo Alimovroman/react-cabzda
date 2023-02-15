@@ -5,7 +5,7 @@ type OnOfTypeProps = {
     setIsOn:(isOn: boolean) => void
     isOn: boolean
 }
-const OnOfControlled: FC<OnOfTypeProps> = ({setIsOn, isOn}) => {
+const NewOnOfControlled: FC<OnOfTypeProps> = ({setIsOn, isOn}) => {
 
     const onClickHandler = (onOf: boolean) => {
         setIsOn(onOf)
@@ -22,5 +22,6 @@ const OnOfControlled: FC<OnOfTypeProps> = ({setIsOn, isOn}) => {
         </div>
     );
 };
+const OnOfControlled = React.memo(NewOnOfControlled)
 
 export default OnOfControlled;
