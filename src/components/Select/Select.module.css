@@ -29,3 +29,6 @@
     margin-bottom: 5px;
 
 }
+.itemTitle:hover {
+    background-color: hotpink;
+}
