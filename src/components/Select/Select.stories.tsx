@@ -12,7 +12,7 @@ const Template: ComponentStory<typeof Select> = (args) => <Select {...args} />
 
 export const SelectTest = Template.bind({})
 SelectTest.args = {
-    items: [{title: 'Roma', value: '1'}, {title: 'Sasha', value: '2'}, {title: 'Masha', value: '3'}],
+    users: [{title: 'Roma', value: '1'}, {title: 'Sasha', value: '2'}, {title: 'Masha', value: '3'}],
 }
 
 

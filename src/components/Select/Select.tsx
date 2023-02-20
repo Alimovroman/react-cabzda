@@ -1,13 +1,21 @@
 import React, {FC, useState} from 'react';
-import {ItemType} from "../Accordion/Accordion";
 import style from './Select.module.css'
 
+export type UserItemType = {
+    title: string
+    value: string
+    age?: number
+    city?: string
+    gender?: string
+}
+
+
 type SelectPropsType = {
-    items: ItemType[]
+    users: UserItemType[]
     changeTitle: (value: any) => void
 }
 
-const SelectControlled: FC<SelectPropsType> = ({items, changeTitle}) => {
+const SelectControlled: FC<SelectPropsType> = ({users, changeTitle}) => {
     const [mainTitle, setMainTitle] = useState('nope')
     const [isOpen, setIsOpen] = useState(false)
     const onChangeTitle = (title: string) => {
@@ -15,6 +23,7 @@ const SelectControlled: FC<SelectPropsType> = ({items, changeTitle}) => {
         setMainTitle(title)
         setIsOpen(false)
     }
+
     const onOpenSelect = () => {
         setIsOpen(!isOpen)
     }
@@ -25,7 +34,7 @@ const SelectControlled: FC<SelectPropsType> = ({items, changeTitle}) => {
                 {isOpen ?  <span>&#9650;</span> : <span>&#9660;</span>}
             </div>
             {isOpen && <div className={style.itemsWrapped}>
-                {items.map((el, i) =>
+                {users.map((el, i) =>
                 <div key={i} onClick={() => onChangeTitle(el.title)} title={el.value} className={style.itemTitle}>
                     {el.title}
                 </div>)}
