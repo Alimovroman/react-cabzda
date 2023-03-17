@@ -4,6 +4,7 @@ import Accordion, {ItemType} from "./components/Accordion/Accordion";
 import Rating from "./components/Rating/Rating";
 import OnOf from "./components/OnOf/OnOf";
 import OnOfControlled from "./components/OnOFControled/OnOfControlled";
+import UniversalClock from "./components/Clock/Clock";
 
 function App() {
     const [value, setValue] = useState<number>(0)
@@ -23,6 +24,7 @@ function App() {
             <Accordion title='YoYoYo?' items={items[1]} onClick={onClick}/>
             <Rating value={value} setValue={setValue}/>
             <OnOf setIsOn={setIsOn}/> {isOn.toString()}
+            <UniversalClock />
             {/*<OnOfControlled setIsOn={setIsOn} isOn={isOn}/>*/}
         </div>
     );

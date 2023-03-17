@@ -53,22 +53,3 @@ export const setTimeoutExample = () => {
         </div>
     )
 }
-export const clock = () => {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    const [currentData, setCurrentData] = useState(new Date())
-    let hours = currentData.getHours()
-    let minutes = currentData.getMinutes()
-    let seconds = currentData.getSeconds()
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    useEffect(() => {
-        setInterval(() => {
-            setCurrentData(new Date())
-        },1000)
-    }, [currentData])
-    console.log(hours)
-    return (
-        <div>
-            {`${hours}:${minutes}:${seconds}`}
-        </div>
-    )
-}
